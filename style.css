@@ -1,9 +1,15 @@
 /* Global ================= */
+/* TODO: renomear o nome das variaveis css para ficarem mais explicativas */
 :root{
-   --dark-blue: #363f5f;
+   --primary-txt-color: #363f5f;
+   --light-blue: #6284ff;
+   --dark-purple: rgb(95, 46, 141); 
    --green: #50cc23;
-   --light-green: rgb(125, 12, 231);
+   --light-purple: blueviolet;
    --red: #e92929;
+   --light-bg: #eeebeb;
+   --light-bg-card:white;
+   --light-border-card: rgb(156, 155, 155);
 }
 * {
    margin: 0;
@@ -16,7 +22,7 @@ html{
    font-size: 93.75%; /* é o mesmo que 15px */
 }
 body {
-   background-color: #f0f0f5;
+   background-color: var(--light-bg);
 }
 
 /* A classe abaixo é uma CSS Trick para deixar o elemento oculto aos usuários, 
@@ -49,14 +55,14 @@ h2 {
 
 /* Links and Buttons ================= */
 a {
-   color: var(--green);
+   color: var(--light-purple);
    text-decoration: none;
 }
 
 a:hover{
    transition: .3s;
 
-   color: var(--light-green);
+   color: var(--green);
 }
 
 button {
@@ -66,18 +72,19 @@ button {
    border: none;
 
    color: white;
-   background: var(--green);
+   background: var(--light-purple);
 
    padding: 0;
 
    border-radius: .25rem;
 
    cursor: pointer;
+
 }
 
 button:hover {
    transition: .3s;
-   background: var(--light-green);
+   background: var(--orange);
 }
 
 .button.cancel {
@@ -107,8 +114,8 @@ button:hover {
 
 /* Header ================= */
 header {
-   background-color: rgb(95, 46, 141);
-   padding: 2rem 0 10rem;
+   background-color: var(--dark-purple);
+   padding: 2.5rem 0 8rem;
    text-align: center;
 }
 
@@ -130,13 +137,15 @@ header {
 
 /* Cards ================= */
 .card{
-   background-color: white;
+   background-color: var(--light-bg-card);
    padding: 1.5rem 2rem;
-   border-radius: .25rem;
+
+   border-radius: .8rem;
+   border-bottom: .6rem solid var(--light-border-card);
 
    margin-bottom: 2rem;
 
-   color: var(--dark-blue);
+   color: var(--primary-txt-color);
 }
 
 .card h3{
@@ -156,8 +165,9 @@ header {
 }
 
 .card.total{
-   background-color: blueviolet;
+   background-color: #49dd20;
    color: white;
+   border-bottom: solid .6rem rgb(45, 136, 36);
 }
 
 
@@ -172,6 +182,10 @@ header {
    width: 100%;
    border-spacing: 0 0.5rem;
    color: #969cb3;
+}
+
+td img{
+   cursor: pointer;
 }
 
 table th{
@@ -208,7 +222,7 @@ table tbody td{
 }
 
 td.description {
-   color: var(--dark-blue);
+   color: var(--primary-text-color);
 }
 
 td.income{
@@ -245,7 +259,7 @@ td.expense {
 }
 
 .modal {
-   background: #F0f2f5;
+   background: var(--light-bg);
    padding: 2.4rem;
 
    position: relative;
@@ -254,9 +268,12 @@ td.expense {
    max-width: 500px;
    width: 90%;
 
-   border-radius: .2rem;
+   border-radius: .4rem;
 }
 
+.modal h2 {
+   color: var(--primary-text-color);
+}
 
 /* Form ================= */
 #form {
@@ -295,12 +312,60 @@ td.expense {
    width: 48%;
 }
 
+/* Dark Mode ================= */
+.dark-mode-btn{
+   position: fixed;
+   z-index: 9;
+
+   bottom: 20px;
+   right: 20px;
+
+   width: 5rem;
+   height: 2rem;
+
+   background-color: var(--light-purple);
+
+   border-radius: 1rem;
+
+   display: flex;
+   align-items: center;
+   justify-content: initial;
+
+   padding: .4rem;
+
+   cursor: pointer;
+}
+
+.dark-mode-btn.active  {
+   justify-content: flex-end;
+   background-color: var(--light-purple);
+}
+
+.dark-mode-btn > span{
+   position: relative;
+
+   /* transition: 1s ease-in; */
+
+   display: block;
+
+   width: 2.25rem;
+   height: 1.2rem;
+
+   border-radius: .8rem;
+
+   background-color: white;
+
+   cursor: pointer;
+
+}
+
+
 /* Footer ================= */
 footer {
    text-align: center;
    padding: 4rem 0 2rem;
    
-   color: var(--dark-blue);
+   color: var(--primary-txt-color);
 
    opacity: .6;
 }
