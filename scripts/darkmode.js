@@ -1,9 +1,14 @@
+// adicionar a preferencia de modo do user no localStorage
+// consertar as var do css
+// revisar css
+// trocar input type number no html
+// criar css para mensagens de erro ou avisos
+
 const darkModeBtn = document.querySelector(".dark-mode-btn");
 const root = document.documentElement;
 
 darkModeBtn.addEventListener("click", () => {
-  if (darkModeBtn.classList.contains("active")) DarkMode.disable();
-  else DarkMode.enable();
+   darkModeBtn.classList.contains("active") ? DarkMode.disable() : DarkMode.enable();
    // darkModeBtn.classList.toggle('active');
 });
 

@@ -57,11 +57,10 @@ h2 {
 a {
    color: var(--light-purple);
    text-decoration: none;
+   transition: .3s;
 }
 
 a:hover{
-   transition: .3s;
-
    color: var(--green);
 }
 
@@ -72,7 +71,7 @@ button {
    border: none;
 
    color: white;
-   background: var(--light-purple);
+   background: var(--green);
 
    padding: 0;
 
@@ -80,16 +79,17 @@ button {
 
    cursor: pointer;
 
+   transition: .3s;
 }
 
 button:hover {
-   transition: .3s;
-   background: var(--orange);
+   background: #12A454;
 }
 
 .button.cancel {
-   color: var(--red);
-   border: 2px var(--red) solid;
+   color: white;
+   background: var(--red);
+
    border-radius: .25rem;
 
    height: 50px;
@@ -299,6 +299,54 @@ td.expense {
 
 .input-group small{
    opacity: .5;
+}
+
+.input-group.tags {
+   display: flex;
+   justify-content: space-between;
+}
+
+.input-group.tags label {
+   width: 48%;
+   height: 40px;
+
+   border-radius: 0.2rem;
+   cursor: pointer;
+
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+
+   padding: 0 10%;
+
+   opacity: .6;
+
+   transition: .2s;
+}
+
+input[type="radio"]{
+   /* display: none; */
+}
+
+label[for="expense_tag"]{
+   border: 2px solid var(--red);
+   color: var(--red);
+}
+
+label[for="income_tag"]{
+   border: 2px solid #12A454;
+   color: #12A454;
+}
+
+input[type="radio"]:checked + label,
+.input-group.tags label:hover {
+   opacity: 1;
+}
+
+.input-group.tags label > img {
+   justify-content: flex-end;
+   height: 26px;
+   width: 26px;
 }
 
 .input-group.actions {

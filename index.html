@@ -10,7 +10,7 @@
       rel="stylesheet">
    <link rel="stylesheet" href="./style.css">
    <link rel="shortcut icon" href="./assets/ico.svg">
-   <title>dev.finance$</title>
+   <title>dev.finances</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                <span>Entradas</span>
                <img src="./assets/income.svg" alt="Imagem de entradas">
             </h3>
-            <p id="incomeDisplay">R$ 5.000,00</p>
+            <p id="incomeDisplay"></p>
          </div>
          <!-- card -->
 
@@ -36,7 +36,7 @@
                <span>Saídas</span>
                <img src="./assets/expense.svg" alt="Imagem de saídas">
             </h3>
-            <p id="expenseDisplay">R$ 2.000,00</p>
+            <p id="expenseDisplay"></p>
          </div>
          <!-- card -->
 
@@ -45,7 +45,7 @@
                <span>Total</span>
                <img src="./assets/total.svg" alt="Imagem de total">
             </h3>
-            <p id="totalDisplay">R$ 3.000,00</p>
+            <p id="totalDisplay"></p>
          </div>
          <!-- card -->
 
@@ -100,9 +100,34 @@
                   <label class="sr-only" for="amount">Valor </label>
                   <input id="amount" type="number" step="0.01" name="amount" placeholder="0,00" />
                   <small class="help">
-                     Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais
+                     Selecione o tipo de operação nos botões abaixo
                   </small>
                </div>
+               <!-- input-group -->
+
+               <!-- <div class="input-group tags">
+                  <input 
+                     type="radio" name="operation_tag" value=""  >
+                  </input>
+
+                  <input 
+                     type="radio" id="expense_tag" name="operation_tag" value="expense">
+                  </input>
+
+                  <label for="expense_tag">
+                     Saída
+                     <img src="./assets/expense.svg" alt="Saída">
+                  </label>
+
+                  <input 
+                     type="radio" id="income_tag" name="operation_tag" value="income">
+                  </input>
+
+                  <label for="income_tag">
+                     Entrada
+                     <img src="./assets/income.svg" alt="Entrada">
+                  </label>
+               </div> -->
                <!-- input-group -->
 
                <div class="input-group">

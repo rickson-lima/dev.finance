@@ -1,3 +1,7 @@
+// adicionar as transações no array por ordem decrescente de data
+// TODO: AO DAR O SUBMIT, INCLUIR O TIPO DE OPERAÇÃO DE ACORDO COM A TAG SELECIONADA
+// SE FOR EXPENSE, TRANSFORMAR O VALOR PASSADO EM NEGATVIO
+// SE FOR EXPENSE, TRANSFORMAR O VALOR PASSADO EM POSITIVO
 const Modal = {
   open() {
     document.querySelector(".modal-overlay").classList.add("active");
@@ -8,20 +12,23 @@ const Modal = {
 };
 
 const Storage = {
-   get() {
-      return JSON.parse(localStorage.getItem('dev.finances:transactions')) || []
-   },
+  get() {
+    return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [];
+  },
 
-   set(transactions) {
-      localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions));
-   }
-}
+  set(transactions) {
+    localStorage.setItem(
+      "dev.finances:transactions",
+      JSON.stringify(transactions)
+    );
+  },
+};
 
 const Transaction = {
   all: Storage.get(),
 
   add(transaction) {
-    Transaction.all.push(transaction);
+    Transaction.all.unshift(transaction);
 
     App.reload();
   },
@@ -109,8 +116,8 @@ const DOM = {
 
 const Utils = {
   formatAmount(value) {
-    value = Number(value) * 100;
-    return value;
+    value *= 100;
+    return Math.round(value);
   },
 
   formatDate(date) {
@@ -141,12 +148,14 @@ const Utils = {
 const Form = {
   description: document.getElementById("description"),
   amount: document.getElementById("amount"),
+  // operation: document.querySelector('input[name="operation_tag"]').checked,
   date: document.getElementById("date"),
 
   getValues() {
     return {
       description: Form.description.value,
       amount: Form.amount.value,
+      // operation: Form.operation,
       date: Form.date.value,
     };
   },
@@ -187,7 +196,6 @@ const Form = {
 
       const transaction = Form.formatValues();
       Transaction.add(transaction);
-
       Form.clearFields();
       Modal.close();
     } catch (error) {
@@ -202,7 +210,7 @@ const App = {
 
     DOM.updateBalance();
 
-    Storage.set(Transaction.all)
+    Storage.set(Transaction.all);
   },
 
   reload() {
